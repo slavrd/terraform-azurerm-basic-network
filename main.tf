@@ -9,16 +9,16 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_virtual_network" "vnet" {
   count = length(var.vnet_address_space) == 0 ? 0 : 1
-  name                = "slav-vnet-tests"
-  location            = "${azurerm_resource_group.rg.location}"
-  resource_group_name = "${azurerm_resource_group.rg.name}"
+  name                = var.vnet_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   address_space       = var.vnet_address_space
 }
 
 resource "azurerm_subnet" "subnets" {
   for_each = toset(var.vnet_subnet_cidrs)
   name                 = length(azurerm_virtual_network.vnet) == 0 ? "" : "${azurerm_virtual_network.vnet[0].name}-subnet-${index(var.vnet_subnet_cidrs, each.value)}"
-  resource_group_name  = "${azurerm_resource_group.rg.name}"
+  resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = length(azurerm_virtual_network.vnet) == 0 ? "" : azurerm_virtual_network.vnet[0].name
   address_prefix       = each.value
 }
