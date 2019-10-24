@@ -17,8 +17,8 @@ resource "azurerm_virtual_network" "vnet" {
 
 resource "azurerm_subnet" "subnets" {
   for_each = toset(var.vnet_subnet_cidrs)
-  name                 = length(azurerm_virtual_network.vnet) == 0 ? "" : "${azurerm_virtual_network.vnet[0].name}-subnet-${index(var.vnet_subnet_cidrs, each.value)}"
+  name                 = "${azurerm_virtual_network.vnet[0].name}-subnet-${index(var.vnet_subnet_cidrs, each.value)}"
   resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = length(azurerm_virtual_network.vnet) == 0 ? "" : azurerm_virtual_network.vnet[0].name
+  virtual_network_name = azurerm_virtual_network.vnet[0].name
   address_prefix       = each.value
 }
