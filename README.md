@@ -28,4 +28,4 @@ Testing is done by using a fixture to call the configuration as a terraform sub-
 ## TODO
 
 - [x] add tests
-- [ ] add common tags
+- [x] add common tags
