@@ -1,14 +1,14 @@
 output "rg" {
     description = "Properties of the created Azure resource group."
-    value = azurerm_resource_group.rg
+    value = module.testmodule.rg
 }
 
 output "vnet" {
     description = "Properties of the created Azure virtual network."
-    value = azurerm_virtual_network.vnet
+    value = module.testmodule.vnet
 }
 
 output "subnets" {
     description = "Properties of the created Azure subnets."
-    value = values(azurerm_subnet.subnets)
+    value = module.testmodule.subnets
 }
