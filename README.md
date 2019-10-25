@@ -24,3 +24,8 @@ Testing is done by using a fixture to call the configuration as a terraform sub-
 * Converge test environment - `bundle exec kitchen converge`
 * Run InSpec tests - `bundle exec kitchen verify`
 * Destroy test environment - `bundle exec kitchen destroy`
+
+## TODO
+
+- [x] add tests
+- [ ] add common tags
