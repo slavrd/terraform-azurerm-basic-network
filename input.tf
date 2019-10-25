@@ -8,6 +8,15 @@ variable "location" {
     description = "The Azure location in which to create the resources."
 }
 
+variable "tags" {
+    type = map(string)
+    description = "A map that represents tagname/value pairs. Assign null to not set any tags."
+    default = {
+        owner = ""
+        project = ""
+    }
+}
+
 variable "vnet_name" {
     type = string
     description = "Name of the Azure vnet."
