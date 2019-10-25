@@ -1,4 +1,4 @@
-output "resource_group" {
+output "rg" {
     description = "Properties of the created Azure resource group."
     value = azurerm_resource_group.rg
 }

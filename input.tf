@@ -14,7 +14,7 @@ variable "vnet_name" {
     default = null
 }
 
-variable "vnet_address_space" {
+variable "vnet_cidrs" {
     type = list(string)
     description = "List of CIDR ranges for the Azure virtual network address spaces. Leave to default if don't want to create a vnet."
     default = []
