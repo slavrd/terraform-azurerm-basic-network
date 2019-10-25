@@ -7,3 +7,11 @@
 
 # .tfvars files
 *.tfvars
+
+# rbenv set ruby version
+.ruby-version
+
+# KitcheCI related files
+.kitchen/
+
+Gemfile.lock
