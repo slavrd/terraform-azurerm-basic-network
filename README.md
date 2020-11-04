@@ -26,8 +26,8 @@ The input variables available for the module are in the table below.
 | location | `string` | | The Azure location in which to create the resources. |
 | common_tags | `map(string)` | `{}` | Common tags to assign to all resources. |
 | vnet_name | `string` | | Name of the Azure vnet. |
-| vnet_cidrs | `list(string)` || List of CIDR ranges for the Azure virtual network address spaces. |
-| vnet_subnet_cidrs | `list(string)` || List of CIDR ranges for subnets creation. It's meaningless to set this if vnet_address_space is not set also. It's the user's responsibility to ensure that the subnets are calculated correctly. |
+| vnet_cidrs | `list(string)` || List of CIDRs for the Azure virtual network address spaces. |
+| vnet_subnet_cidrs | `list(string)` || List of CIDRs for subnets creation. It's meaningless to set this if vnet_address_space is not set also. It's the user's responsibility to ensure that the subnets are calculated correctly. |
 
 ## Outputs
 
