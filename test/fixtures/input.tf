@@ -11,10 +11,7 @@ variable "location" {
 variable "tags" {
   type        = map(string)
   description = "A map that represents tagname/value pairs. Assign null to not set any tags."
-  default = {
-    owner   = ""
-    project = ""
-  }
+  default     = {}
 }
 
 variable "vnet_name" {
