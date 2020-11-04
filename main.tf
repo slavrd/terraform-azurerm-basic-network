@@ -2,7 +2,7 @@ resource "azurerm_resource_group" "rg" {
   count    = var.rg_create ? 1 : 0
   name     = var.rg_name
   location = var.location
-  tags     = var.tags
+  tags     = var.common_tags
 }
 
 locals {
@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "vnet" {
   location            = local.location
   resource_group_name = local.rg_name
   address_space       = var.vnet_cidrs
-  tags                = var.tags
+  tags                = var.common_tags
 }
 
 resource "azurerm_subnet" "subnets" {
