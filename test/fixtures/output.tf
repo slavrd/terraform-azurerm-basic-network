@@ -1,6 +1,11 @@
-output "rg" {
-  description = "Properties of the created Azure resource group."
-  value       = module.testmodule.rg
+output "rg_name" {
+  description = "The name of the Azure resource group created and/or used by the module."
+  value       = module.testmodule.rg_name
+}
+
+output "location" {
+  description = "The Azure location used for the resources."
+  value       = module.testmodule.location
 }
 
 output "vnet" {

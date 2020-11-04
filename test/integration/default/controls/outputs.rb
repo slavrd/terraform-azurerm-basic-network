@@ -3,28 +3,24 @@ control 'outputs' do
     title 'Outputs test'
     desc 'Simple tests that the outputs are not empty'
 
-    describe 'rg output' do
-        subject{ input('rg') }
-
+    describe 'rg_name output' do
+        subject{ input('rg_name') }
         it 'should not be empty' do
-            expect(subject['name']).to(match /.+/)
-        end
+            expect(subject).to(match /\w+/)
+        end      
+    end
 
-        it 'tags should not be empty' do
-            expect(subject['tags'].empty?).to(be false)
-        end
-        
+    describe 'location output' do
+        subject{ input('location') }
+        it 'should not be empty' do
+            expect(subject).to(match /\w+/)
+        end      
     end
 
     describe 'vnet output' do
         subject{ input('vnet') }
-
         it 'array should have 1 element' do
             expect(subject.length).to(eq 1)
-        end
-
-        it 'tags should not be empty' do
-            expect(subject[0]['tags'].empty?).to(be false)
         end
 
     end
