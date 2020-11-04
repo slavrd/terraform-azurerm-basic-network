@@ -14,6 +14,6 @@ output "vnet" {
 }
 
 output "subnets" {
-  description = "A mapping bettween the input CIDRs and the created subnets."
+  description = "A mapping between the input CIDRs and the created subnets."
   value       = azurerm_subnet.subnets
 }
