@@ -1,6 +1,6 @@
 rg_name  = "kitchen-test-basic-network"
 location = "westeurope"
-tags = {
+common_tags = {
   project = "kitchen-test-basic-network"
 }
 

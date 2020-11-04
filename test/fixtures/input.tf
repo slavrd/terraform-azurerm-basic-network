@@ -8,9 +8,9 @@ variable "location" {
   description = "The Azure location in which to create the resources."
 }
 
-variable "tags" {
+variable "common_tags" {
   type        = map(string)
-  description = "A map that represents tagname/value pairs. Assign null to not set any tags."
+  description = "Common tags to assign to all resources."
   default     = {}
 }
 
