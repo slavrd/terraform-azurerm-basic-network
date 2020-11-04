@@ -19,16 +19,32 @@ control 'outputs' do
 
     describe 'vnet output' do
         subject{ input('vnet') }
+
         it 'should be an object' do
             expect(subject.class).to(be Hash)
+        end
+
+        it 'should have an id property with value which is the expected id of the Azure Vnet' do
+            expect(subject[:id]).to(match /.+\/providers\/Microsoft\.Network\/virtualNetworks\/#{subject[:name]}$/)
         end
 
     end
 
     describe 'subnets output' do
-        subject{ input('subnets').length }
-        it 'array should not be empty' do
-            expect(subject).to(be > 0)
+        subject{ input('subnets') }
+
+        it 'should be a map' do
+              expect(subject.class).to(be Hash)
+        end
+    end
+  
+     
+    input('subnets').each_value do | subnet |
+        describe 'subnet value' do
+            subject{ subnet }
+            it 'should have an id property with value which is the id of an Azure Subnet' do
+                expect(subject[:id]).to(match /.+\/providers\/Microsoft\.Network\/virtualNetworks\/#{input('vnet')[:name]}\/subnets\/#{subject[:name]}$/)
+            end    
         end
     end
 
