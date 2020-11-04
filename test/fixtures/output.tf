@@ -14,6 +14,6 @@ output "vnet" {
 }
 
 output "subnets" {
-  description = "Properties of the created Azure subnets."
+  description = "A mapping bettween the input CIDRs and the created subnets."
   value       = module.testmodule.subnets
 }
