@@ -1,14 +1,8 @@
-
 ---
 name: default
 title: Basic Azure infrastructure tests
 summary: Test suite for confirming that the module successfully creates the Azure resources.
 version: 0.1.0
-
-inputs:
-  - name: rg
-    type: Hash
-  - name: vnet
-    type: Array
-  - name: subnets
-    type: Array
+depends:
+  - name: inspec-azure
+    url: https://github.com/inspec/inspec-azure/archive/v1.35.0.tar.gz
