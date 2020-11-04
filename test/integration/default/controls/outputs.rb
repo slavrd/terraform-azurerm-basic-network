@@ -19,8 +19,8 @@ control 'outputs' do
 
     describe 'vnet output' do
         subject{ input('vnet') }
-        it 'array should have 1 element' do
-            expect(subject.length).to(eq 1)
+        it 'should be an object' do
+            expect(subject.class).to(be Hash)
         end
 
     end

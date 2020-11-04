@@ -17,13 +17,11 @@ variable "tags" {
 variable "vnet_name" {
   type        = string
   description = "Name of the Azure vnet."
-  default     = null
 }
 
 variable "vnet_cidrs" {
   type        = list(string)
   description = "List of CIDR ranges for the Azure virtual network address spaces. Leave to default if don't want to create a vnet."
-  default     = []
 }
 
 variable "vnet_subnet_cidrs" {
