@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 0.12.0"
-}
-
 resource "azurerm_resource_group" "rg" {
   count    = var.rg_create ? 1 : 0
   name     = var.rg_name
