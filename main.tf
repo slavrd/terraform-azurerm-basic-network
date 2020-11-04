@@ -11,7 +11,6 @@ locals {
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  count               = length(var.vnet_cidrs) == 0 ? 0 : 1
   name                = var.vnet_name
   location            = local.location
   resource_group_name = local.rg_name
@@ -21,8 +20,8 @@ resource "azurerm_virtual_network" "vnet" {
 
 resource "azurerm_subnet" "subnets" {
   for_each             = toset(var.vnet_subnet_cidrs)
-  name                 = "${azurerm_virtual_network.vnet[0].name}-subnet-${index(var.vnet_subnet_cidrs, each.value)}"
+  name                 = "${azurerm_virtual_network.vnet.name}-subnet-${index(var.vnet_subnet_cidrs, each.value)}"
   resource_group_name  = local.rg_name
-  virtual_network_name = azurerm_virtual_network.vnet[0].name
+  virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [each.value]
 }
